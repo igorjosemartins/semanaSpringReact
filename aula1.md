@@ -52,3 +52,20 @@ Front-end <---- requisições web (HTTP/JSON) ----> Back-end + Banco de Dados (s
    -> React faz uma renderização do HTML a partir de uma ID ('root')
 
    -> Componente visual do React = função JavaScript
+
+   -> Componente = pedaço de código reaproveitável
+      -> Um sistema é um conjunto de componentes trabalhando em conjunto para atingir um objetivo
+
+   -> Cada componente é armazenado em um arquivo .tsx (typescript + react)
+
+   -> Arquivo tsx
+      -> função javascript que retorna tags HTML
+
+   -> Para por mais de uma tag HTML em um componente temos que botar elas dentro de um fragment = "<> </>"
+
+   -> Não podemos usar "class" do HTML no React por ser também ser do JavaScript, portanto usamos "className"
+
+   -> Para por uma expressão no React, devemos usar entre "{}". Ex: src={icon} 
+
+   -> Para importar da mesma pasta = './'
+   -> Pasta anterior '../'
