@@ -48,7 +48,8 @@ Front-end <---- requisições web (HTTP/JSON) ----> Back-end + Banco de Dados (s
    -> Usamos o framework Spring Initializr para nos ajudar a criar o projeto em Spring
 
 
-- React
+
+- React (Components)
    -> React faz uma renderização do HTML a partir de uma ID ('root')
 
    -> Componente visual do React = função JavaScript
@@ -74,4 +75,9 @@ Front-end <---- requisições web (HTTP/JSON) ----> Back-end + Banco de Dados (s
    -> Para importar da mesma pasta = './'
    -> Pasta anterior '../'
 
-   
+
+
+- DatePicker
+   -> Componente que renderiza um calendário no qual o usuário pode escolher uma data
+
+   -> https://github.com/Hacker0x01/react-datepicker
