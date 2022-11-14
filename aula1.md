@@ -81,3 +81,10 @@ Front-end <---- requisições web (HTTP/JSON) ----> Back-end + Banco de Dados (s
    -> Componente que renderiza um calendário no qual o usuário pode escolher uma data
 
    -> https://github.com/Hacker0x01/react-datepicker
+
+
+
+- React Hook "useState"
+   -> Hook são recursos do React que estão atrelados ao ciclo de vida do componente
+
+   -> Serve para mantermos o estado das datas (manter a alteração do usuário)
