@@ -64,8 +64,14 @@ Front-end <---- requisições web (HTTP/JSON) ----> Back-end + Banco de Dados (s
    -> Para por mais de uma tag HTML em um componente temos que botar elas dentro de um fragment = "<> </>"
 
    -> Não podemos usar "class" do HTML no React por ser também ser do JavaScript, portanto usamos "className"
+   
+   -> Para por uma expressão no React, devemos usar entre "{}". Ex: src={icon} 
 
    -> Para por uma expressão no React, devemos usar entre "{}". Ex: src={icon} 
 
+   -> A estrutura principal da página (main) nós não transformamos em componente, botamos ela direto no "App"
+
    -> Para importar da mesma pasta = './'
    -> Pasta anterior '../'
+
+   
