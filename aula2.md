@@ -65,3 +65,53 @@
       -> Seed do Banco de Dados
          -> Criar um arquivo "import.sql" na pasta "resources"
          -> Colocar os comandos de inserção de dados em SQL no arquivo 
+   
+
+
+   - Primeiro teste de endpoint da API REST
+
+      -> Fluxo padrão
+         -> Repository -> Service -> Controller
+            -> Repository = CRUD
+            
+            -> Service = função do sistema através do Repository
+            
+            -> Controller = disponibiliza os dados pro front-end através do Service
+
+
+      -> Criar repository
+         -> Componentes que são responsáveis por manipular o banco de dados (consulta, deletar, salvar, etc)
+      
+         -> Criação no Spring:
+            -> new interface
+            -> extends JpaRepository<nomeDaEntidade, tipoDoId> | (<Sale, Long>)
+
+         -> Com isso o Spring já cria um componente que faz um CRUD no banco de dados
+      
+
+      -> Criar service
+         -> Responsável por implementar as operações de negócio (ex: buscar as vendas)
+         -> Uma funcionalidade do sistema
+
+         -> Criação no Spring:
+            -> new class que recebe "@Service" notation
+            -> private "nomeRepository" repository que recebe "@Autowired" notation
+
+            -> Por querermos uma lista de vendas
+               -> public List<nomeEntidade> findSales()
+               -> return repository.findAll()
+      
+
+      -> Criar controller
+         -> Implementa as APIs
+         -> Responsável por disponibilizar os endpoints que o front-end precisa para acessar o back-end
+
+         -> Criação no Spring:
+            -> new class que recebe @RestController + @RequestMapping(value = "/endereço")
+
+            -> private "nomeService" service que recebe @Autowired
+
+            -> método para disponibilizar para o front-end
+               -> Recebe @GetMapping (método HTTP)
+               -> public List<Sale> findSales()
+               -> return service.findSales()
