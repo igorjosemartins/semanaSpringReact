@@ -208,3 +208,11 @@
 
          String msg = "O vendedor " + name + " foi destaque em " + date + " com um total de R$ " + amount; 
          ```
+   
+
+
+   -> Implantação no Heroku
+      -> Implantar as variáveis de ambiente no Heroku
+      
+      -> Criar arquivo "system.properties"
+         -> java.runtime.version=17
