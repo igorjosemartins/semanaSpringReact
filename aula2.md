@@ -123,6 +123,7 @@
       -> Trocar os tipos de retornos de "List" por um objeto especial do Spring "Page" (mostra as primeiras 20 vendas)
       -> Passar o argumento "pageable" nas funcionalidades
 
+
       -> Resultado páginado
          -> Controller
             -> Adicionar os parâmetros minDate e maxDate nas funções
@@ -159,9 +160,51 @@
          -> Condição terciária
             -> "?" = "=="
             -> ":" = "else"
-            
+
             -> Caso os parâmetros recebam uma string vazia, minDate recebe 1 ano atrás e maxDate recebe hoje, senão roda normal
                LocalDate min = minDate.equals("") ? today.minusDays(365) : LocalDate.parse(minDate);
 		         LocalDate max = maxDate.equals("") ? today: LocalDate.parse(maxDate);
 
+   
+
+   - Envio de SMS
+      -> Twilio
+         -> Disponibiliza várias APIs
+         -> Cadastrar-se e fazer a comunicação entre ele e a nossa aplicação
       
+         -> Adicionar dependências do Twilio no pom.xml
+
+         -> Definir variáveis de ambiente no application.properties
+            -> Por se tratar de dados sensíveis, como ID do twilio, número, etc, criamos variáveis que serão configuradas 
+               no ambiente que a aplicação estará rodando
+            
+         -> Criar classe SmsService que vai enviar de fato um SMS
+            -> Utilizamos então as variáveis de ambiente com a notation "@Value" para receber os dados da aplicação
+            -> A função de enviar o SMS foi tirada da documentação do Twilio
+
+
+      -> Criar um endpoint no Controller para receber essa função de SMS
+         -> Declarar a classe SmsService
+
+         -> Criar o endpoint por meio da notation "@GetMapping" com "/notification" como parâmetro
+            -> Criar a função notifySms que retorna a função que envia o SMS
+
+
+      -> Definir as variáveis de ambiente na IDE, conforme foram declaradas
+
+      
+      -> Lógica de programação para enviar a mensagem do SMS
+         
+         ```java
+         // pegamos o Id da venda
+         Sale sale = saleRepository.findById(saleId).get();
+
+         // nome do vendedor
+         String name = sale.getSellerName();
+         // data da venda (separado por "mês" + "/" + "ano")
+         String date = sale.getDate().getMonthValue() + "/" + sale.getDate().getYear();
+         // quantia da venda (formatado 2 casas após a virgula)
+         String amount = String.format("%.2f", sale.getAmount());
+
+         String msg = "O vendedor " + name + " foi destaque em " + date + " com um total de R$ " + amount; 
+         ```
