@@ -216,3 +216,10 @@
       
       -> Criar arquivo "system.properties"
          -> java.runtime.version=17
+
+      -> Procedimento de conexão do heroku com git
+         -> heroku -v
+         -> heroku login
+         -> heroku git:remote -a <nome-do-app>
+         -> git remote -v
+         -> git subtree push --prefix backend heroku main
