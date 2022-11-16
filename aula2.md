@@ -115,3 +115,53 @@
                -> Recebe @GetMapping (método HTTP)
                -> public List<Sale> findSales()
                -> return service.findSales()
+
+
+
+   - Configurar consulta por data
+      -> A aplicação está retornando TODAS as vendas, por isso devemos filtrar 
+      -> Trocar os tipos de retornos de "List" por um objeto especial do Spring "Page" (mostra as primeiras 20 vendas)
+      -> Passar o argumento "pageable" nas funcionalidades
+
+      -> Resultado páginado
+         -> Controller
+            -> Adicionar os parâmetros minDate e maxDate nas funções
+            -> Adicionar a notation "@RequestParam" com parâmetros de "value = minDate" e "defaultValue = ''"
+
+         -> Service
+            -> Adicionar os parâmetros minDate e maxDate nas funções
+            -> transformar os valores de String para LocalDate
+
+         -> Repository
+            -> Criar uma busca customizada que recebe como parâmetro min e max já transformados em LocalDate
+               -> ("SELECT obj FROM Sale obj WHERE obj.date BETWEEN :min AND :max ORDER BY obj.amount DESC")
+               -> "obj" = vendas
+               -> pegue as vendas da tabela "Sale" onde a data das vendas esteja entre a data min e max, ordenados decrescente pelo número de vendas
+
+
+      -> Consulta com parâmetros na URL
+         -> "?" = diz que virá um parâmetro a seguir
+         -> "&" = divide os parâmetros
+
+         -> Ex: localhost:8080/sales?minDate=2022-01-01&maxDate=2022-03-31
+         -> consulta por vendas entre o começo de janeiro até o fim de março
+      
+
+      -> Tratar erro de URL sem parâmetros
+         -> Caso não for informado nenhum dos parâmetros, minDate = 1 ano atrás e maxDate = hoje
+
+         -> Criar uma nova variável "today", onde recebe o dia de hoje, conforme a data do sistema
+            -> LocalDate today = LocalDate.ofInstant(Instant.now(), ZoneId.systemDefault());
+         
+         -> Utilizamos um método do objeto LocalDate ".minusDays", onde ele subtrai dias da data inserida
+            -> today.minusDays(365) = 1 ano atrás
+
+         -> Condição terciária
+            -> "?" = "=="
+            -> ":" = "else"
+            
+            -> Caso os parâmetros recebam uma string vazia, minDate recebe 1 ano atrás e maxDate recebe hoje, senão roda normal
+               LocalDate min = minDate.equals("") ? today.minusDays(365) : LocalDate.parse(minDate);
+		         LocalDate max = maxDate.equals("") ? today: LocalDate.parse(maxDate);
+
+      
