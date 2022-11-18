@@ -12,4 +12,61 @@
       
       -> useEffect = ReactHook (programar de uma forma atrelada ao ciclo de vida do componente)
          -> Executa alguma coisa quando o componente é montado, ou quando algum dado que você informar alterar
-            -> Controlar," quando mudar este dado, execute esta função"
+            -> Controlar, "quando mudar este dado, execute esta função"
+         
+         -> Recebe uma função e uma lista como parâmetro
+            -> 
+
+   
+
+   - Listagem de vendas
+      -> Definição da BASE_URL:
+         -> `export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";`
+         -> Pega o valor da variavel de ambiente, se não existir variavel de ambiente com este nome, por padrão utilize o localhost:8080
+         -> Ou seja, estamos atribuindo o endpoint a uma variável, para sempre que precisarmos mandar uma requisição pro back-end, 
+            só precisamos usar a variável, e não o endereço inteiro
+         
+
+      -> Armazenar a lista de vendas no useState
+         -> Exportar os tipos de dados na pasta "models"
+            -> export type Sale = { id: 23, sellerName: Igor, ...}
+
+         -> [sales, setSales] recebe o useState (nome do dado, nome da função que altera o dado)
+         
+         -> Precisamos tipar o useState
+            -> <Sale[]> (lista de vendas) + ([]) valor inicial (lista vazia)
+
+         -> Quando buscar do back-end as vendas, chamamos a função setSales para atualizar o useState com o valor da API
+         
+         -> No final:
+            -> `useEffect(() => { axios.get(`${BASE_URL}/sales`).then(response => {setSales(response.data.content);});  }, []);`
+      
+
+      -> Renderizar a lista de vendas pelo React
+         -> `{sales.map((sale) => { return( "código html" )}`
+         -> Utilizamos a função .map na lista "sales" que foi preenchida pelo useState
+         -> Passamos como parâmetro a venda "sale"
+         -> Retorna todo o código html que tinhamos feito antes, porém agora com os dados dinâmicos do back-end
+
+         -> No final:
+         ```tsx
+         {sales.map((sale) => {
+            return (
+               <tr key={sale.id}>
+               <td className="show992">{sale.id}</td>
+               <td className="show576">{new Date(sale.date).toLocaleDateString()}</td>
+               <td>{sale.sellerName}</td>
+               <td className="show992">{sale.visited}</td>
+               <td className="show992">{sale.deals}</td>
+               <td>R$ {sale.amount.toFixed(2)}</td>
+               <td>
+                  <div className="dsmeta-red-btn-container">
+                     <NotificationButton />
+                  </div>
+               </td>
+               </tr>
+            )
+         })}
+         ```
+
+         -> Passamos entre "{}" os dados do objeto sale | sale.id, sale.date, ...
