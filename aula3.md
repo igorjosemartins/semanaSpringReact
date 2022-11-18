@@ -8,7 +8,7 @@
 ## Anotações
 
    - Primeira requisição com Axios e useEffect
-      -> `yarn add axios@0.27.2`
+      -> `npm install axios@0.27.2`
       
       -> useEffect = ReactHook (programar de uma forma atrelada ao ciclo de vida do componente)
          -> Executa alguma coisa quando o componente é montado, ou quando algum dado que você informar alterar
@@ -82,6 +82,7 @@
       -> Colocar minDate e maxDate na lista de dependências do useEffect
          -> Para que sempre que o minDate ou maxDate mudar, executar novamente o useEffect
 
+
    
    - Enviar notificação
       -> Ao clicar no botão de uma venda, mande uma mensagem com os dados daquela venda
@@ -97,3 +98,17 @@
          -> Logo quando clicarmos, ele irá executar a função que chama a API de mandar SMS
 
       -> Por fim passar a Prop também nos arquivos onde o componente do botão está sendo utilizado
+
+   
+
+   - Mensagem Toast de confirmação
+      -> Instalar biblioteca toastify
+         -> `npm install react-toastify@9.0.5`
+
+      -> Importar:
+         -> `import { ToastContainer } from 'react-toastify';` | `import 'react-toastify/dist/ReactToastify.css';`
+         -> Criar um componente `<ToastContainer />` no "App.tsx"
+         -> Com isso já podemos utilizar em qualquer componente a biblioteca toastify
+
+         -> No componente do botão de notificação, colocamos como resposta da requisição da função que pega API do back-end, a mensagem Toast
+            -> `toast.info("mensagem");`
