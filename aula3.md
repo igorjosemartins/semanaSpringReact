@@ -21,6 +21,7 @@
 
    - Listagem de vendas
       -> Definição da BASE_URL:
+         -> Criar arquivo "request.ts" na pasta "utils"
          -> `export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";`
          -> Pega o valor da variavel de ambiente, se não existir variavel de ambiente com este nome, por padrão utilize o localhost:8080
          -> Ou seja, estamos atribuindo o endpoint a uma variável, para sempre que precisarmos mandar uma requisição pro back-end, 
@@ -28,7 +29,7 @@
          
 
       -> Armazenar a lista de vendas no useState
-         -> Exportar os tipos de dados na pasta "models"
+         -> Exportar os tipos de dados no arquivo "sales.ts" na pasta "models"
             -> export type Sale = { id: 23, sellerName: Igor, ...}
 
          -> [sales, setSales] recebe o useState (nome do dado, nome da função que altera o dado)
@@ -80,3 +81,19 @@
       
       -> Colocar minDate e maxDate na lista de dependências do useEffect
          -> Para que sempre que o minDate ou maxDate mudar, executar novamente o useEffect
+
+   
+   - Enviar notificação
+      -> Ao clicar no botão de uma venda, mande uma mensagem com os dados daquela venda
+
+      -> Criar um type no componente do botão que recebe o id da venda
+         -> Passar como parâmetro no botão, o type "Props"
+      
+      -> Criar função "handleClick"que chama o endpoint que manda a notificação
+         -> Usar biblioteca "axios" para chamar a API
+
+      -> Criar um evento onClick na div do botão
+         -> Passar a função "handleClick" no evento
+         -> Logo quando clicarmos, ele irá executar a função que chama a API de mandar SMS
+
+      -> Por fim passar a Prop também nos arquivos onde o componente do botão está sendo utilizado
