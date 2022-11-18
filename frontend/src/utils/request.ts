@@ -1,3 +1,2 @@
 export const BASE_URL =
-  import.meta.env.VITE_BACKEND_URL ??
-  "https://semana-spring-react-igor.herokuapp.com"
+  import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080"
