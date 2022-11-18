@@ -70,3 +70,13 @@
          ```
 
          -> Passamos entre "{}" os dados do objeto sale | sale.id, sale.date, ...
+
+   
+
+   - Passando as datas como argumento
+      -> Criar variáveis dmin e dmax para recortar as datas devolvidas pelo back-end
+
+      -> Igualar minDate e maxDate com as variáveis dmin e dmax como argumento na URL, para deixar dinâmico a aplicação
+      
+      -> Colocar minDate e maxDate na lista de dependências do useEffect
+         -> Para que sempre que o minDate ou maxDate mudar, executar novamente o useEffect
