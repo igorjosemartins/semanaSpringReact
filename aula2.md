@@ -10,20 +10,20 @@
 
 ## Anotações
 
-   - Instalações
+   ### Instalações
       -> Postman (API development)
       -> Heroku CLI (cloud host)
 
    
 
-   - Configuração de segurança
+   ### Configuração de segurança
       -> back-end vai estar hospedado no Heroku, porém o front-end vai estar hospedado em outro lugar
       -> para uma aplicação que está hospedada em um lugar, acessar outra em outra hospedagem, temos que liberar o acesso
          -> CORS (Cross-Origin Resource Sharing)
 
 
    
-   - Banco de Dados
+   ### Banco de Dados
       -> Fazer mapeamento objeto-relacional (JPA)
          -> Transformar uma classe Java em uma tabela no Banco de Dados
 
@@ -68,7 +68,7 @@
    
 
 
-   - Primeiro teste de endpoint da API REST
+   ### Primeiro teste de endpoint da API REST
 
       -> Fluxo padrão
          -> Repository -> Service -> Controller
@@ -118,7 +118,7 @@
 
 
 
-   - Configurar consulta por data
+   ### Configurar consulta por data
       -> A aplicação está retornando TODAS as vendas, por isso devemos filtrar 
       -> Trocar os tipos de retornos de "List" por um objeto especial do Spring "Page" (mostra as primeiras 20 vendas)
       -> Passar o argumento "pageable" nas funcionalidades
@@ -167,7 +167,7 @@
 
    
 
-   - Envio de SMS
+   ### Envio de SMS
       -> Twilio
          -> Disponibiliza várias APIs
          -> Cadastrar-se e fazer a comunicação entre ele e a nossa aplicação
@@ -211,7 +211,7 @@
    
 
 
-   -> Implantação no Heroku
+   ### Implantação no Heroku
       -> Implantar as variáveis de ambiente no Heroku
       
       -> Criar arquivo "system.properties"

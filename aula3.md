@@ -7,7 +7,7 @@
 
 ## Anotações
 
-   - Primeira requisição com Axios e useEffect
+   ### Primeira requisição com Axios e useEffect
       -> `npm install axios@0.27.2`
       
       -> useEffect = ReactHook (programar de uma forma atrelada ao ciclo de vida do componente)
@@ -19,7 +19,7 @@
 
    
 
-   - Listagem de vendas
+   ### Listagem de vendas
       -> Definição da BASE_URL:
          -> Criar arquivo "request.ts" na pasta "utils"
          -> `export const BASE_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";`
@@ -74,7 +74,7 @@
 
    
 
-   - Passando as datas como argumento
+   ### Passando as datas como argumento
       -> Criar variáveis dmin e dmax para recortar as datas devolvidas pelo back-end
 
       -> Igualar minDate e maxDate com as variáveis dmin e dmax como argumento na URL, para deixar dinâmico a aplicação
@@ -84,7 +84,7 @@
 
 
    
-   - Enviar notificação
+   ### Enviar notificação
       -> Ao clicar no botão de uma venda, mande uma mensagem com os dados daquela venda
 
       -> Criar um type no componente do botão que recebe o id da venda
@@ -101,7 +101,7 @@
 
    
 
-   - Mensagem Toast de confirmação
+   ### Mensagem Toast de confirmação
       -> Instalar biblioteca toastify
          -> `npm install react-toastify@9.0.5`
 
@@ -115,12 +115,15 @@
 
    
 
-   - Deploy no Netlify
+   ### Deploy do front-end no Netlify
       -> Acrescentar `window.React = React` no "main.tsx"
       
       -> Base directory = frontend
-      -> Build command = npm build
+      -> Build command = npm run build
       -> Publish directory = frontend/dist
 
-      -> Variáveis de ambiente = VITE_BACKEND_URL
-         -> 
+      -> Variáveis de ambiente 
+         -> key = VITE_BACKEND_URL
+         -> value = link do back-end do Heroku ("https://semana-spring-react-igor.herokuapp.com")
+
+      -> 
