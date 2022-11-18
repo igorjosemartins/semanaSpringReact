@@ -112,3 +112,15 @@
 
          -> No componente do botão de notificação, colocamos como resposta da requisição da função que pega API do back-end, a mensagem Toast
             -> `toast.info("mensagem");`
+
+   
+
+   - Deploy no Netlify
+      -> Acrescentar `window.React = React` no "main.tsx"
+      
+      -> Base directory = frontend
+      -> Build command = npm build
+      -> Publish directory = frontend/dist
+
+      -> Variáveis de ambiente = VITE_BACKEND_URL
+         -> 
