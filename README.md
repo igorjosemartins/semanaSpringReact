@@ -51,6 +51,8 @@
         -> Selecionar a pasta do projeto como Root Directory
         -> Selecionar o arquivo "pom.xml"
         
+  - Caso não apareça do lado esquerdo os arquivos do projeto, procure na lupa por "Project Explorer"
+        
  <br>
         
   ### Configurar Variáveis de Ambiente
