@@ -1,6 +1,4 @@
-# semanaSpringReact
-
-## Aplicação Web - React + SpringBoot
+# Aplicação Web - React + SpringBoot
 
   Este projeto foi desenvolvido durante a Semana Spring React dos dias (14/11 - 18/11) elaborado pelo professor Nélio Alves 
 
