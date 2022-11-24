@@ -51,7 +51,7 @@
         -> Selecionar a pasta do projeto como Root Directory
         -> Selecionar o arquivo "pom.xml"
         
-  - Caso não apareça do lado esquerdo os arquivos do projeto, procure na lupa por "Project Explorer"
+  - Caso não apareça os arquivos do projeto no lado esquerdo da IDE, procure na lupa por "Project Explorer"
         
  <br>
         
