@@ -82,6 +82,10 @@
    
  <br>
      
+   - No SpringBoot, abra o Boot Dashboard. 
+   
+   - Em "local", botão direito no "backend" e clique em (Re)start para iniciar o backend
+   
    - O SpringBoot tem como padrão a porta :8080, portanto suas rotas:
      
                 -> './sales' = mostra as 20 primeiras vendas de maior valor
